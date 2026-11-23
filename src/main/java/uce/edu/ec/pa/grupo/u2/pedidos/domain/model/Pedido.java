@@ -1,24 +1,37 @@
 package uce.edu.ec.pa.grupo.u2.pedidos.domain.model;
 
-import java.time.LocalDate;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 
+@Entity  //Esta clase es administrada por jakarta Persistence API (JPA) y se mapeará a una tabla en la base de datos.
+@Table (name = "pedidos") //nombre de la tabla en la base de datos
 public class Pedido {
 
+    @Id 
+    @SequenceGenerator (name = "pedido_seq", sequenceName = "pedido_seq_db", allocationSize = 1) //le doy un nombre que le doy al objeto, mapeo al nombre de la secuencia, le deigo en cuanto va a incrementar
+    @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "pedido_seq") 
+    @Column (name = "pedd_id") //nombre de la columna en la base de datos
     private Integer id;
-    private Integer cliente_id;
-    private String estado;
-    private Double total;
-    private LocalDate fPedido;
+
+    @Column (name = "pedd_producto") //nombre de la columna en la base de datos
+    private String producto;
+
+    @Column (name = "pedd_precio") //nombre de la columna en la base de datos
+    private Double precio;
+
 
     public Pedido() {
     }
 
-    public Pedido(Integer id, Integer cliente_id, String estado, Double total, LocalDate fPedido) {
+    public Pedido(Integer id, String producto, Double precio) {
         this.id = id;
-        this.cliente_id = cliente_id;
-        this.estado = estado;
-        this.total = total;
-        this.fPedido = fPedido;
+        this.producto = producto;
+        this.precio = precio;
     }
 
     public Integer getId() {
@@ -29,41 +42,21 @@ public class Pedido {
         this.id = id;
     }
 
-    public Integer getCliente_id() {
-        return cliente_id;
+    public String getProducto() {
+        return producto;
     }
 
-    public void setCliente_id(Integer cliente_id) {
-        this.cliente_id = cliente_id;
+    public void setProducto(String producto) {
+        this.producto = producto;
     }
 
-    public String getEstado() {
-        return estado;
+    public Double getPrecio() {
+        return precio;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setPrecio(Double precio) {
+        this.precio = precio;
     }
-
-    public Double getTotal() {
-        return total;
-    }
-
-    public void setTotal(Double total) {
-        this.total = total;
-    }
-
-    public LocalDate getfPedido() {
-        return fPedido;
-    }
-
-    public void setfPedido(LocalDate fPedido) {
-        this.fPedido = fPedido;
-    }
-
-    
-    
-
 
     
     
