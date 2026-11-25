@@ -79,6 +79,12 @@ public class Factura {
         this.total = total;
     }
 
+    @Override
+    public String toString() {
+        return "Factura [id=" + id + ", nFactura=" + nFactura + ", fechaEmision=" + fechaEmision + ", subtotal="
+                + subtotal + ", total=" + total + "]";
+    }
+
     
     
     

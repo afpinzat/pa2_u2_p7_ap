@@ -80,4 +80,12 @@ public class Pago {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    @Override
+    public String toString() {
+        return "Pago [id=" + id + ", referencia=" + referencia + ", metodoPago=" + metodoPago + ", monto=" + monto
+                + ", estado=" + estado + "]";
+    }
+
+    
 }

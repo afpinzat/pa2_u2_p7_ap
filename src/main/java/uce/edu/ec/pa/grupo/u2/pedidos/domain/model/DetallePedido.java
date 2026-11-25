@@ -80,4 +80,12 @@ public class DetallePedido {
     public void setSubtotal(Double subtotal) {
         this.subtotal = subtotal;
     }
+
+    @Override
+    public String toString() {
+        return "DetallePedido [id=" + id + ", nombreProducto=" + nombreProducto + ", precioUnitario=" + precioUnitario
+                + ", cantidad=" + cantidad + ", subtotal=" + subtotal + "]";
+    }
+
+    
 }

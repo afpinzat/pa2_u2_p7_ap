@@ -78,4 +78,11 @@ public class Cliente {
         this.nTelefono = nTelefono;
     }
 
+    @Override
+    public String toString() {
+        return "Cliente [id=" + id + ", nombre=" + nombre + ", cedula=" + cedula + ", mail=" + mail + ", nTelefono="
+                + nTelefono + "]";
+    }
+
+
 }

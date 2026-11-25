@@ -1,5 +1,7 @@
 package uce.edu.ec.pa.grupo.u2.pedidos.domain.model;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,14 +26,18 @@ public class Pedido {
     @Column (name = "pedd_precio") //nombre de la columna en la base de datos
     private Double precio;
 
+    @Column(name = "pedd_fecha")
+    private LocalDate fecha;
+
 
     public Pedido() {
     }
 
-    public Pedido(Integer id, String producto, Double precio) {
+    public Pedido(Integer id, String producto, Double precio, LocalDate fecha) {
         this.id = id;
         this.producto = producto;
         this.precio = precio;
+        this.fecha = fecha;
     }
 
     public Integer getId() {
@@ -56,6 +62,19 @@ public class Pedido {
 
     public void setPrecio(Double precio) {
         this.precio = precio;
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+
+    @Override
+    public String toString() {
+        return "Pedido [id=" + id + ", producto=" + producto + ", precio=" + precio + ", fecha=" + fecha + "]";
     }
 
     
